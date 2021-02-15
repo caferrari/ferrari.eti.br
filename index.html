@@ -20,6 +20,9 @@ src="https://www.facebook.com/tr?id=121517293135383&ev=PageView&noscript=1"
     
 <script>
     function displayMessage (evt) {
+        
+        console.log('payload received', evt.data);
+
         try {
             const payload = JSON.parse(evt.data);
             if (payload.event) {
