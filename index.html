@@ -26,6 +26,7 @@ src="https://www.facebook.com/tr?id=121517293135383&ev=PageView&noscript=1"
         try {
             const payload = JSON.parse(evt.data);
             if (payload.event) {
+                console.log('event tracked', payload.event);
                 fbq('track', payload.event);
             }
         } catch (err) {
