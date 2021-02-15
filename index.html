@@ -18,5 +18,26 @@ src="https://www.facebook.com/tr?id=121517293135383&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
     
+<script>
+    function displayMessage (evt) {
+        try {
+            const payload = JSON.parse(evt.data);
+            if (payload.event) {
+                fbq('track', payload.event);
+            }
+        } catch (err) {
+            console.log('invalid data');
+        }
+    }
+
+    if (window.addEventListener) {
+        window.addEventListener("message", displayMessage, false);
+    }
+    else 
+    {
+        window.attachEvent("onmessage", displayMessage);
+    }
+</script>
+    
     
     </body></html>
